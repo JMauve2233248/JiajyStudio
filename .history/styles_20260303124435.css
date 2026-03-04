@@ -1,0 +1,32 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20;
+    padding: 0;
+}
+
+/*Navigation Bar*/
+.navbar {
+    position: sticky;
+    padding: 20px;
+    top: 0;
+    background-color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/*ITprojects.html*/
+.header-image {
+    width: 100%;
+    height: auto;
+}
+.logo {
+    width: 30px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}

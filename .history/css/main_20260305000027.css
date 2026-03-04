@@ -1,0 +1,239 @@
+:root {
+    /* Define color variables */
+    /* Dark Mode*/
+    --background-color: #1a151f; /*Dark Purple*/
+    --purple-color: #3F3381; /*Purple*/
+    --purple-glow-color: #dfdae7; /*Lighter Purple for Glow Effect*/
+    --yellow-color: #FFD700; /*Yellow*/
+}
+
+html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+}
+
+body {
+    font-family: 'Monospace', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: white;
+    margin: 0;
+}
+
+footer {
+    font-size: 0.5em;
+    text-align: center;
+    color: white;
+}
+
+/*========================== Attributes =========================*/
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+/*========================= Moon Button on Top-right =========================*/
+.moon-button {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 1000;
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    mix-blend-mode: difference; /* Invert colors for better visibility on different backgrounds */
+    border: none;
+    border-radius: 50%;
+    transition: opacity .2s, transform .2s; /* Smooth transition for show/hide and hover effects */
+}
+
+.moon-button:hover {
+    box-shadow: 0 0 22px var(--yellow-color);
+    color: var(--yellow-color);
+    transform: translateY(-1px);
+    transition: 0.15s;
+}
+
+.moon-button.hidden {
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+}
+
+.moon-button.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/*overlay*/
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+/*Popup Menu*/
+.popup-menu {
+    position: fixed;
+    right: 18px;
+    top: 70px;
+    z-index: 1001;
+
+    width: 220px;
+    padding: 14px 14px 10px;
+    border-radius: 18px;
+
+    background: var(--background-color);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    transform: translateY(-10px) scale(0.98);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+/*Menu List*/
+.Menu-List{
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+    gap: 8px;
+}
+
+.Menu-List a{
+    text-decoration: none;
+    color: #eaeaf0;
+    padding: 10px 12px;
+    border-radius: 12px;
+}
+
+.Menu-List a:hover{
+    color: var(--yellow-color);
+}
+
+/*When close the menu*/
+.overlay.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-menu.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+/*========================= Navigation Bar =========================*/
+#tabMarker {
+    height: 1px;
+}
+
+.tabs {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    padding: 0 16px;
+    border-radius: 2px;
+    background: none;
+    position: relative;
+    margin-top: -39px;
+    justify-content: center;
+    z-index: 10;
+}
+
+.tab {
+    position: relative;
+    padding: 10px 14px 8px;
+    color: rgba(255, 255, 255, 0.416);
+    text-decoration: none;
+    font-weight: 600;
+    background: rgba(64, 59, 84, 0.75);
+    border-bottom: none;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transform: translateY(2px);
+}
+
+.tab::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    width: 22px;
+    height: 12px;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tab:hover {
+    color: var(--yellow-color);
+}
+
+.tab.active {
+    background-color: var(--background-color);
+    color: #ccc;
+}
+
+.tab.active:hover {
+    color: var(--yellow-color);
+}
+
+.header-image {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+}
+
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/*========================= Tooltip =========================*/
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+
+    width: fit-content;
+    max-width: 200px;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+}

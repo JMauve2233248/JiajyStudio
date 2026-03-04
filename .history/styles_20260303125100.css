@@ -1,0 +1,44 @@
+body {
+    font-family: 'Monospace', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 20;
+    padding: 0;
+}
+
+/*Navigation Bar*/
+.navbar {
+    position: sticky;
+    padding: 20px;
+    top: 0;
+    background-color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/*ITprojects.html*/
+.header-image {
+    width: 100%;
+    height: auto;
+}
+
+.IT_header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.logo {
+    width: auto;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.about-me {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
